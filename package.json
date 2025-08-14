@@ -4,9 +4,9 @@
   "description": "燕山大学GPU集群用户手册静态网站",
   "type": "module",
   "scripts": {
-    "dev": "vitepress dev docs",
-    "build": "vitepress build docs",
-    "preview": "vitepress preview docs"
+    "dev": "vitepress dev vitepress-docs",
+    "build": "vitepress build vitepress-docs",
+    "preview": "vitepress preview vitepress-docs"
   },
   "packageManager": "pnpm@8.0.0",
   "devDependencies": {
