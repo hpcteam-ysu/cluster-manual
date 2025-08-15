@@ -22,8 +22,8 @@
 集群预装了以下软件环境：
 
 ### 开发环境
-- GCC编译器 版本：15.2 12.2
-- cuda 版本: 11.7 11.8 12.0 12.2）
+- GCC编译器 版本：15.2 12.2 11.4 
+- cuda 版本: 11.7 11.8 12.0 12.2
 - clang 版本：18.1.8
 - icc 版本：2025.2.1
 
@@ -31,6 +31,14 @@
 ### 作业调度系统
 - SLURM作业调度器
 - SCOW可视化管理系统
+
+### module 常用命令
+
+- 查看所有可用模块：`module avail`
+- 加载模块：`module load <module_name>`
+- 卸载模块：`module unload <module_name>`
+- 显示已加载模块：`module list`
+- 切换模块：`module swap <old_module_name> <module_name>`
 
 ## 2.4 软件安装指南
 TODO
