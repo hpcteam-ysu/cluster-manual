@@ -6,7 +6,7 @@
 
 ## 2.2 系统存储结构
 
-集群使用管理节点搭载的磁盘构建集群的文件存储系统。
+集群使用登录节点搭载的磁盘构建集群的文件存储系统。
 
 | 硬盘 | 配额 | 挂载点 | RAID类型 | 用途 |
 |-----|-----|-----|-----|-----|
@@ -21,7 +21,7 @@ hardlimit 是指用户在使用资源时的硬限制，当用户使用资源超�
 
 ### 注意事项
 
-1. 如果用户磁盘配额需要提升磁盘配额，可以按照要求填写《燕山大学计算机学科 GPU 集群磁盘配额申请表》，管理员会根据用户使用情况，为用户提升磁盘配额。
+1. 如果用户磁盘配额需要提升磁盘配额，可联系管理员申请提升。
 
 ## 2.3 软件环境
 
@@ -82,4 +82,69 @@ pip config set global.index-url https://pypi.mirrors.ustc.edu.cn/simple
 
 ### pip安装和conda安装的区别
 pip只管理Python的软件包，较为轻量，而conda支持多语言管理，其依赖管理和环境隔离功能更加强大，但体积较大。
-如需安装其他软件，请联系管理员或使用用户空间安装方式。
+
+### linuxbrew的安装及使用
+下面介绍一种在用户空间下进行软件安装的方法，即linuxbrew。
+linuxbrew允许用户在自己的用户目录下安装软件，而不需要sudo权限。
+#### 安装linuxbrew
+集群默认不提供linuxbrew，需用户手动安装，但因用户无sudo权限，故需在用户目录下安装，以下是安装命令：
+```bash
+mkdir homebrew && curl -L https://github.com/Homebrew/brew/tarball/main | tar xz --strip-components 1 -C homebrew #创建homebrew目录并下载源码
+eval "$(homebrew/bin/brew shellenv)" #将homebrew添加到环境变量
+brew update --force --quiet #更新homebrew
+chmod -R go-w "$(brew --prefix)/share/zsh" #递归设置zsh目录为只读
+echo 'eval "$(homebrew/bin/brew shellenv)"' >> ~/.bashrc #将homebrew添加到bashrc
+```
+**请注意：homebrew官方对用户空间的软件安装不提供支持，若出现问题，建议联系管理员或借助AI工具解决。**
+#### 使用linuxbrew安装软件
+安装完成后，即可使用linuxbrew安装软件，以下是常用命令：
+
+```bash
+# ========== 搜索软件 ==========
+# 搜索包含关键词的软件包
+brew search python
+brew search gcc
+
+# ========== 查看软件信息 ==========
+# 查看软件详细信息
+brew info python
+brew info git
+
+# ========== 安装软件 ==========
+# 安装指定软件
+brew install python
+brew install git
+brew install cmake
+
+# ========== 升级软件 ==========
+# 升级单个软件
+brew upgrade python
+
+# 升级所有已安装的软件
+brew upgrade
+
+# ========== 卸载软件 ==========
+# 卸载指定软件
+brew uninstall python
+brew uninstall git
+
+# ========== 查看已安装的软件 ==========
+# 列出所有已安装的软件
+brew list
+
+# 查看特定软件是否已安装
+brew list | grep python
+
+# ========== 更新和维护 ==========
+# 更新 brew 自身和软件索引
+brew update
+
+# 检查环境与问题
+brew doctor
+
+# 查看配置信息
+brew config
+
+# 清理旧版本文件
+brew cleanup
+```
