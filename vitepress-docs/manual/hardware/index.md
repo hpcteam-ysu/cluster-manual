@@ -8,14 +8,14 @@
 
 | 节点名称 | CPU | 内存 | GPU |
 |---------|---------|----------|---------------|
-| login | Intel(R) Xeon(R) Gold 5218R CPU @ 2.Hz | 144G | None |
-| compute01 | Intel(R) Xeon(R) Gold 5218R CPU @ 2.Hz | 144G | GeForce RTX 3090 × 2 |
-| compute02 | Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.Hz | 32G | GeForce GTX TITAN X × 4 |
-| compute03 | Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.Hz | 144G | GeForce GTX TITAN X × 4 |
-| compute04 | Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.Hz | 144G | GeForce RTX 3090 × 2 |
-| compute05 | Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.Hz | 144G | GeForce RTX 3090 × 2 |
-| compute06 | Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.Hz | 144G | Tesla P100 × 2 |
-| compute07 | Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.Hz | 144G | Tesla P100 × 2 |
+| login | Intel(R) Xeon(R) Gold 5218R CPU @ 2.10Hz | 144G | None |
+| compute01 | Intel(R) Xeon(R) Gold 5218R CPU @ 2.10Hz | 144G | GeForce RTX 3090 × 2 |
+| compute02 | Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.10Hz | 32G | GeForce GTX TITAN X × 4 |
+| compute03 | Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.10Hz | 144G | GeForce GTX TITAN X × 4 |
+| compute04 | Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.10Hz | 144G | GeForce RTX 3090 × 2 |
+| compute05 | Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.10Hz | 144G | GeForce RTX 3090 × 2 |
+| compute06 | Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.10Hz | 144G | Tesla P100 × 2 |
+| compute07 | Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.10Hz | 144G | Tesla P100 × 2 |
 
 ## 1.3 网络配置
 
