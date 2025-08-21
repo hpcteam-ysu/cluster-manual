@@ -102,21 +102,6 @@ salloc --partition=dlq --gres=gpu:1 --mem=10G --cpus-per-task=2
 1. 不推荐指定节点提交，可能导致作业长时间排队
 2. 默认情况下内存占用和CPU占用与申请资源一致，若作业占用资源超过申请资源，作业会被强制终止
 
-### 4.5.3 MPI作业提交脚本
-
-```bash
-#!/bin/bash
-
-#SBATCH -J JobName      # 作业名称
-#SBATCH -p dlq          # 作业队列
-#SBATCH -o Job.out      # 作业输出文件
-#SBATCH -N 1            # 作业申请节点数
-#SBATCH --ntasks-per-node=1 # 每个节点任务数
-#SBATCH -t 1:00:00     # 作业最长运行时间
-
-mpirun -np 8 ./job.sh
-```
-
 ## 4.6 取消作业
 
 使用 `scancel` 命令取消作业：
