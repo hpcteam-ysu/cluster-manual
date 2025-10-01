@@ -14,9 +14,8 @@ sinfo
 
 | 队列名称 | 节点 | 用途 |
 |---------|------|----------|
-| dlq | compute01、compute04-compute05 | 深度学习队列，配备RTX 3090 GPU |
-| hpcq | compute06-compute07 | 高性能计算队列，配备Tesla P100 GPU |
-| testnodes | compute02-compute03 | 测试节点，配备GTX TITAN X GPU |
+| dlq | compute01-compute05 | 深度学习队列、可视化渲染队列，配备RTX 3090 GPU 、GTX TITAN X GPU|
+| hpcq | compute06-compute07 | 高性能计算队列（默认计算队列），配备Tesla P100 GPU |
 
 ### 常见节点状态
 
@@ -40,7 +39,7 @@ squeue
 
 其中 `NODELIST(REASON)` 显示作业所在节点，或未执行作业的等待原因。
 
-## 4.3 交互式任务提交
+## 4.3 交互式任务提交 {#interactive}
 
 使用 `srun` 命令提交交互式任务：
 
@@ -55,7 +54,7 @@ srun --partition=dlq --gres=gpu:1 --mem=10G --cpus-per-task=2 --pty /bin/bash
 
 用户可以通过 `squeue` 查看分配到的节点，也可通过主机名称查看分配到的节点，程序运行结果会输出到终端。
 
-## 4.4 独占式任务提交（调试程序）
+## 4.4 独占式任务提交（调试程序） {#exclusive}
 
 使用 `salloc` 命令申请独占资源：
 
@@ -68,7 +67,7 @@ salloc <申请资源>
 salloc --partition=dlq --gres=gpu:1 --mem=10G --cpus-per-task=2
 ```
 
-成功分配资源后，用户可以通过 `squeue` 查看分配到的节点，并 `ssh` 到节点调试程序，解决程序BUG后，再使用脚本式任务提交。
+成功分配资源后，用户可以通过 `squeue` 查看分配到的节点（也可以使用-p指定分区的同时使用-w指定特定节点），并 `srun --pty /bin/bash` 连接到节点调试程序，解决程序BUG后，再使用脚本式任务提交。
 
 ## 4.5 脚本式任务提交
 
